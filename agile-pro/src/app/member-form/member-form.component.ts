@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MemberstorageService } from '../memberstorage.service';
+import { Members } from '../members';
 
 @Component({
   selector: 'app-member-form',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberFormComponent implements OnInit {
 
-  constructor() { }
+  memList: Members[] = [];
+  nextID: number = 0;
+  memName: string ='';
+  memRole: string = '';
+
+
+  constructor(private memStorage: MemberstorageService) { }
 
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  addNewMember(){
+    const newMember: Members = {
+      id: this.nextID++,
+      name: this.memName,
+      role: this.memRole
+    };
+
+    this.memStorage.addNewMember(newMember).subscribe((data) => this.fetchData);
+  }
+
+  fetchData() {
+    this.memStorage.getMembers().subscribe((data) => this.memList = data);
   }
 
 }
