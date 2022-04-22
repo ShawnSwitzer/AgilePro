@@ -11,7 +11,7 @@ import { NewUserStoryComponent } from './new-user-story/new-user-story.component
 import { MemberInputComponent } from './member-input/member-input.component';
 
 
-@NgModule({
+@NgModule ({
   declarations: [
     AppComponent,
     DashboardComponent,
