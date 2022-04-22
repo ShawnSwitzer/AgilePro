@@ -8,7 +8,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserStoryComponent } from './user-story/user-story.component';
 import { TaskComponent } from './task/task.component';
 import { NewUserStoryComponent } from './new-user-story/new-user-story.component';
-import { MemberFormComponent } from './member-form/member-form.component';
+import { MemberInputComponent } from './member-input/member-input.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MemberFormComponent } from './member-form/member-form.component';
     UserStoryComponent,
     TaskComponent,
     NewUserStoryComponent,
-    MemberFormComponent
+    MemberInputComponent,
   ],
   imports: [
     BrowserModule,

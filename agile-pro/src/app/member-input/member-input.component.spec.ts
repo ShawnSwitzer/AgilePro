@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MemberFormComponent } from './member-form.component';
+import { MemberInputComponent } from './member-input.component';
 
-describe('MemberFormComponent', () => {
-  let component: MemberFormComponent;
-  let fixture: ComponentFixture<MemberFormComponent>;
+describe('MemberInputComponent', () => {
+  let component: MemberInputComponent;
+  let fixture: ComponentFixture<MemberInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MemberFormComponent ]
+      declarations: [ MemberInputComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MemberFormComponent);
+    fixture = TestBed.createComponent(MemberInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
