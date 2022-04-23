@@ -22,7 +22,7 @@ export class MemberInputComponent implements OnInit {
 
   addNewMember(){
     const newMember: Members = {
-      id: this.nextID++,
+      id: ++this.nextID,
       name: this.memName,
       role: this.memRole
     };
