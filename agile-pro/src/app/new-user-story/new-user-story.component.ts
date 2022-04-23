@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserstoryService } from '../userstory.service';
+import { UserStories } from '../userstories';
 
 @Component({
   selector: 'app-new-user-story',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewUserStoryComponent implements OnInit {
 
-  constructor() { }
+  userList: UserStories[] = [];
+  nextID: number = 0;
+
+  constructor(private userService: UserstoryService) { }
 
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  addNewStory(){
+    const newStory: UserStories = {
+      id: this.nextID++,
+      description: this.newDescription
+
+    };
+  }
+
+  fetchData(){
+    this.userService.getTasks().subscribe(data => this.userList = data);
   }
 
 }
