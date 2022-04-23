@@ -17,7 +17,7 @@ export class TaskstorageService {
   getTasks() {
     return this.http.get<Tasks[]>('https://tasks-ed88e-default-rtdb.firebaseio.com/' + 'tasks.json').pipe(map((responseData) => {
       const taskList: Tasks[] = [];
-      for (const key in taskList) taskList.push(responseData[key]); return taskList;
+      for (const key in responseData) taskList.push(responseData[key]); return taskList;
     }))
 }
 }

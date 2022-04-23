@@ -10,6 +10,9 @@ import { UserStoryComponent } from './user-story/user-story.component';
 import { TaskComponent } from './task/task.component';
 import { NewUserStoryComponent } from './new-user-story/new-user-story.component';
 import { MemberInputComponent } from './member-input/member-input.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule ({
@@ -26,7 +29,10 @@ import { MemberInputComponent } from './member-input/member-input.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatSelectModule
   
   ],
   providers: [],
