@@ -17,7 +17,7 @@ export class MemberstorageService {
   getMembers() {
     return this.http.get<Members[]>('https://members-de5fc-default-rtdb.firebaseio.com/' + 'members.json').pipe(map((responseData) => {
       const memberList: Members[] = [];
-      for (const key in memberList) memberList.push(responseData[key]); return memberList;
+      for (const key in responseData) memberList.push(responseData[key]); return memberList;
     }))
   }
 }
