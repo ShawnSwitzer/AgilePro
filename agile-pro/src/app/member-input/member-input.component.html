@@ -1,1 +1,17 @@
-Test
+<div class="container">
+    <label>Add Memeber Form</label>
+    <button class="button">back</button><br>
+    <div class="card">
+            <div>
+                <input class="input"type="text" placeholder="Name" [(ngModel)]="memName"><br>
+            </div>
+            <div>
+                <select class="input" id="roles" [(ngModel)]="memRole" >
+                    <option value = "Scrum Master">Scrum Master</option>
+                    <option value = "Product Owner">Product Owner</option>
+                    <option value = "Development Team">Development Team</option>
+                </select><br>
+            </div>
+            <button class="button" type="submit" (click)="addNewMember()">Add Member</button>
+    </div>   
+</div>
