@@ -17,7 +17,7 @@ export class UserstoryService {
   getTasks() {
     return this.http.get<UserStories[]>('https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json').pipe(map((responseData) => {
       const usList: UserStories[] = [];
-      for (const key in usList) usList.push(responseData[key]); return usList;
+      for (const key in responseData) usList.push(responseData[key]); return usList;
     }))
 }
 }
