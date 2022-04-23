@@ -12,6 +12,7 @@ import { NewUserStoryComponent } from './new-user-story/new-user-story.component
 import { MemberInputComponent } from './member-input/member-input.component';
 
 
+
 @NgModule ({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { MemberInputComponent } from './member-input/member-input.component';
     TaskComponent,
     NewUserStoryComponent,
     MemberInputComponent,
+    
 
   ],
   imports: [
