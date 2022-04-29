@@ -14,7 +14,6 @@ export class MemberInputComponent implements OnInit {
   memName: string = '';
   memRole: string = '';
 
-
   constructor(private memService: MemberstorageService) { }
 
   ngOnInit(): void {
@@ -23,12 +22,15 @@ export class MemberInputComponent implements OnInit {
 
   addNewMember(){
     const newMember: Members = {
-      id: this.nextID++,
+      id: ++this.nextID,
       name: this.memName,
       role: this.memRole
     };
 
     this.memService.addNewMember(newMember).subscribe(data => this.fetchData);
+
+    this.memName = "";
+    this.memRole = "";
   }
 
   fetchData(){
