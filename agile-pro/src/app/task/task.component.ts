@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskstorageService } from '../taskstorage.service';
 import { Tasks } from '../tasks';
 import { HttpClient } from '@angular/common/http';
+import { throws } from 'assert';
 
 @Component({
   selector: 'app-task',
@@ -45,5 +46,9 @@ export class TaskComponent implements OnInit {
     this.taskStorageService.getTasks().subscribe((data) => {
       this.tasks = data;
     })
+  }
+
+  deleteAllTasks(){
+    this.taskStorageService.deleteTasks().subscribe();
   }
 }

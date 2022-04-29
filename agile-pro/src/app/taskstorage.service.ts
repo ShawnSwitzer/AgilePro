@@ -20,4 +20,8 @@ export class TaskstorageService {
       for (const key in responseData) taskList.push(responseData[key]); return taskList;
     }))
 }
+
+deleteTasks() {
+  return this.http.delete('https://tasks-ed88e-default-rtdb.firebaseio.com/' + 'tasks.json');
+}
 }

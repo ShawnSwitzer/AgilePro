@@ -20,4 +20,8 @@ export class UserstoryService {
       for (const key in responseData) usList.push(responseData[key]); return usList;
     }))
 }
+
+  deleteUserStories(){
+    return this.http.delete('https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json');
+  }
 }
