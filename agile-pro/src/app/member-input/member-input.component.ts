@@ -35,4 +35,8 @@ export class MemberInputComponent implements OnInit {
     this.memService.getMembers().subscribe(data => this.memList = data);
   }
 
+  deleteAllMembers(){
+    this.memService.deleteMembers().subscribe();
+  }
+
 }
