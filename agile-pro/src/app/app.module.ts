@@ -13,6 +13,8 @@ import { MemberInputComponent } from './member-input/member-input.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 
 
@@ -34,7 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   
   ],
   providers: [],
