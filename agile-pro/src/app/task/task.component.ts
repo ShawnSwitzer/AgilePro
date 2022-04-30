@@ -3,6 +3,8 @@ import { TaskstorageService } from '../taskstorage.service';
 import { Tasks } from '../tasks';
 import { HttpClient } from '@angular/common/http';
 import {FormControl, Validators} from '@angular/forms';
+import { throws } from 'assert';
+
 
 @Component({
   selector: 'app-task',
@@ -52,5 +54,9 @@ titleFormControl = new FormControl('', [Validators.required]);
     this.taskStorageService.getTasks().subscribe((data) => {
       this.tasks = data;
     })
+  }
+
+  deleteAllTasks(){
+    this.taskStorageService.deleteTasks().subscribe();
   }
 }

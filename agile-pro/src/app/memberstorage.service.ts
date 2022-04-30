@@ -20,4 +20,8 @@ export class MemberstorageService {
       for (const key in responseData) memberList.push(responseData[key]); return memberList;
     }))
   }
+
+  deleteMembers() {
+    return this.http.delete('https://members-de5fc-default-rtdb.firebaseio.com/' + 'members.json');
+  }
 }
