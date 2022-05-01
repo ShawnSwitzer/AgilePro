@@ -17,3 +17,13 @@ mat-list-option[aria-selected="true"] {
     height:max-content;
     
 }
+
+.taskListItem{
+font-size: x-large;
+text-decoration-line: underline;
+
+}
+
+.whiteClass{
+    text-decoration-color: white;
+}
