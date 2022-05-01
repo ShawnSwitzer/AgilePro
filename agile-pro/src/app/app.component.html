@@ -1,2 +1,30 @@
-<app-member-input></app-member-input>
-<app-task></app-task>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: lightsteelblue;">
+    <a class="navbar-brand navbar-light" routerLink="/dashboard"> <img
+            src="https://www.aerospacewalesforum.com/wp-content/uploads/Agile-Logo.png" width="40" height="30"
+            class="d-inline-block align-top">AGILEPRO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container-fluid" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/members">Members</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/tasks">Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/userstories">User Stories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/newuserstory">Add User Stories</a>
+            </li>
+        </ul>
+        <strong>Copyright: © AgilePro</strong>
+    </div>
+</nav>
+<router-outlet></router-outlet>
