@@ -29,11 +29,12 @@ export class NewUserStoryComponent implements OnInit {
   }
 
   fetchData(){
-    this.userService.getTasks().subscribe(data => this.userList = data);
+    this.userService.getStories().subscribe(data => this.userList = data);
   }
 
   deleteAllUserStories(){
     this.userService.deleteUserStories().subscribe();
+    window.location.reload();
   }
 
 }

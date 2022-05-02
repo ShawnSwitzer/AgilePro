@@ -10,11 +10,11 @@ export class UserstoryService {
 
   constructor(private http: HttpClient) { }
 
-  addNewTasks(newUS: UserStories) {
+  addNewStories(newUS: UserStories) {
     return this.http.post('https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json', newUS);
   }
 
-  getTasks() {
+  getStories() {
     return this.http.get<UserStories[]>('https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json').pipe(map((responseData) => {
       const usList: UserStories[] = [];
       for (const key in responseData) usList.push(responseData[key]); return usList;

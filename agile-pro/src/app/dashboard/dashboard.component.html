@@ -1,0 +1,19 @@
+<h1>Product Backlog</h1>
+<h2>Sprint Backlog</h2>
+<h3>Done</h3>
+<div style="display:flex">
+    <div cdkDropList [cdkDropListData]="taskList" [cdkDropListConnectedTo]="[secondList,thirdList]" #firstList="cdkDropList"
+        class="dashboard-list" (cdkDropListDropped)="drop($event)" style="width: 33%; border: 1px solid blue;">
+        <div cdkDrag *ngFor="let tasks of taskList" class="dashboard-box">{{tasks.title}}</div>
+    </div>
+    <div cdkDropList [cdkDropListData]="sprintLog" [cdkDropListConnectedTo]="[firstList,thirdList]" #secondList="cdkDropList"
+        class="dashboard-list" (cdkDropListDropped)="drop($event)" style="width: 33%; border: 1px solid blue;">
+        <div cdkDrag *ngFor="let tasks of sprintLog" class="dashboard-box">{{tasks.title}}</div>
+    </div>
+    <div cdkDropList [cdkDropListData]="completeLog" [cdkDropListConnectedTo]="[firstList,secondList]" #thirdList="cdkDropList"
+        class="dashboard-list" (cdkDropListDropped)="drop($event)" style="width: 33%; border: 1px solid blue;">
+        <div cdkDrag *ngFor="let tasks of completeLog" class="dashboard-box">{{tasks.title}}</div>
+    </div>
+</div>
+<div>
+</div>

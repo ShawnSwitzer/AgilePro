@@ -39,6 +39,7 @@ export class MemberInputComponent implements OnInit {
 
   deleteAllMembers(){
     this.memService.deleteMembers().subscribe();
+    window.location.reload();
   }
 
 }

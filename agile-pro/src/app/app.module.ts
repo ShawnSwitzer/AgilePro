@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -37,7 +38,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     MatListModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   
   ],
   providers: [],

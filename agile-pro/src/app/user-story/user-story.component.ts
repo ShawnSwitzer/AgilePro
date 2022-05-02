@@ -28,7 +28,7 @@ export class UserStoryComponent implements OnInit {
   }
 
   fetchData(){
-    this.userService.getTasks().subscribe(data => this.userList = data);
+    this.userService.getStories().subscribe(data => this.userList = data);
   }
 
   deleteUserStories(){

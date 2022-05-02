@@ -58,5 +58,6 @@ titleFormControl = new FormControl('', [Validators.required]);
 
   deleteAllTasks(){
     this.taskStorageService.deleteTasks().subscribe();
+    window.location.reload();
   }
 }
