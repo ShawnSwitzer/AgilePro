@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Members } from '../members';
-import { MemberstorageService } from '../memberstorage.service';
 import { Tasks } from '../tasks';
 import { TaskstorageService } from '../taskstorage.service';
 import { UserStories } from '../userstories';
 import { UserstoryService } from '../userstory.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { Members } from '../members';
+import { MemberstorageService } from '../memberstorage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,9 +17,11 @@ export class DashboardComponent implements OnInit {
   taskList: Tasks[] = [];
   sprintLog: Tasks[] = [];
   completeLog: Tasks[] = [];
+  userStoryLog: UserStories[] = [];
+  memberLog: Members[] = [];
 
 
-  constructor(private taskStorage: TaskstorageService) { }
+  constructor(private taskStorage: TaskstorageService, private uStorage: UserstoryService, private memStorage: MemberstorageService ) { }
 
 
   ngOnInit(): void {
@@ -31,6 +33,8 @@ export class DashboardComponent implements OnInit {
     this.taskStorage.getTasks().subscribe((data) => {
       this.taskList = data;
     })
+    this.uStorage.getStories().subscribe((data) => {this.userStoryLog = data});
+    this.memStorage.getMembers().subscribe((data) => {this.memberLog = data});
   }
 
   drop(event: CdkDragDrop<any[]>) {
@@ -46,4 +50,12 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  formatLabel(value: number) {
+    if (value >= 1) {
+      return Math.round(value / 1);
+    }
+
+    return value;
+  }
+  
 }

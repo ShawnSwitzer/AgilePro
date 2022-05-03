@@ -4,6 +4,7 @@ import { Tasks } from '../tasks';
 import { HttpClient } from '@angular/common/http';
 import {FormControl, Validators} from '@angular/forms';
 import { throws } from 'assert';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class TaskComponent implements OnInit {
   tasks: Tasks[] = [];
   taskID: number = 0; //impelemnt better approach later
 
-  constructor(private taskStorageService: TaskstorageService) { }
+  constructor(private taskStorageService: TaskstorageService, private location: Location) { }
 
   ngOnInit(): void {
     this.fetchData();
@@ -59,5 +60,9 @@ titleFormControl = new FormControl('', [Validators.required]);
   deleteAllTasks(){
     this.taskStorageService.deleteTasks().subscribe();
     window.location.reload();
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

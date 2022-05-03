@@ -15,9 +15,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
-
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule ({
   declarations: [
@@ -39,7 +38,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatListModule,
     MatSelectModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    ScrollingModule,
+    MatSliderModule
   
   ],
   providers: [],

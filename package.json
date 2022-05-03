@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@angular/cdk": "^13.3.5",
+    "@material/checkbox": "^14.0.0",
     "assert": "^2.0.0",
     "bootstrap": "^5.1.3"
   },
