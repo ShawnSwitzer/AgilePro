@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 p-3" style="background-color:lightgray">
@@ -21,38 +20,31 @@
                 <h3>Due Date:</h3>
                 {{taskList.selectedOptions.selected[0]?.value.dueDate}}
                 <br><br>
-<!--
-                <h3>Edit Data Here</h3>
-                <label for="task-title">Task Title: </label>
-                <input id="task-title" [(ngModel)]="taskList.selectedOptions.selected[0]?.value.title" placeholder="name">
-
-!-->
-
-               <!-- <button>Delete Task</button>!-->
             </div>
         </div>
 
         <div class="col-sm-4 p-3" style="background-color: lightgray;">
-            <input matInput type="title" [formControl]="titleFormControl" placeholder="Title" #taskTitle>
-            <br>
-            <mat-error *ngIf="titleFormControl.hasError('required')">
-                Task Title is <strong>required</strong>
-            </mat-error>
-            <!--<input placeholder="Title" #taskTitle> !-->
-            <br>
-            <input placeholder="description" #taskDescription>
-            <br>
-            Due Date
-            <br>
-            
-            <input type="date" id="start" name="trip-start" value="2022-12-31" min="2022-01-01" max="2042-12-31"
-                #dueDate>
-
-            <br><br>
-            <button
-                (click)="addTask(taskTitle.value, taskDescription.value, dueDate.value); titleFormControl.reset(); taskDescription.value=''">
-                Add Task
-            </button>
+            <!--
+        Testing with Form and with different method
+        with this video: https://www.youtube.com/watch?v=4J9nDZ0gvdo
+    -->
+            <form #RegisterForm="ngForm" (ngSubmit)="registerTask(RegisterForm.value)">
+                <h1>Add Task</h1>
+                <input type="text" ngModel id="title" name="title" placeholder="Title" />
+                <input type="text" ngModel id="description" name="description" placeholder="Description" />
+                <input type="submit" id="saveData" value="Add" />
+            </form>
+            <form #EditForm="ngForm" (ngSubmit)="updateTask(EditForm.value)">
+                <h1>Edit Task</h1>
+                <input type="text" ngModel id="title" name="title" placeholder="Title" />
+                <input type="text" ngModel id="description" name="description" placeholder="Description" />
+                <input type="submit" id="editData" value="Edit" />
+            </form>
+            <form #DeleteForm="ngForm" (ngSubmit)="deleteTask(EditForm.value)">
+                <h1>Delete Task</h1>
+                <input type="text" ngModel id="title" name="title" placeholder="Title" />
+                <input type="submit" id="deleteData" value="Delete"/>
+            </form>
 
         </div>
 
@@ -62,7 +54,7 @@
         Delete All Tasks
     </button>
 
-    <button style="text-align: right;" (click) = "goBack()">
+    <button style="text-align: right;" (click)="goBack()">
         Go Back
     </button>
 

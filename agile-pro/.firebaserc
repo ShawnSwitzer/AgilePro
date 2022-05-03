@@ -1,0 +1,28 @@
+{
+  "targets": {
+    "tasks-ed88e": {
+      "hosting": {
+        "agile-pro": [
+          "tasks-ed88e"
+        ]
+      }
+    },
+    "members-de5fc": {
+      "hosting": {
+        "agile-pro": [
+          "members-de5fc"
+        ]
+      }
+    },
+    "userstories-3def5": {
+      "hosting": {
+        "agile-pro": [
+          "userstories-3def5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tasks-ed88e"
+  }
+}

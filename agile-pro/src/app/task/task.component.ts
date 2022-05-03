@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import {FormControl, Validators} from '@angular/forms';
 import { throws } from 'assert';
 import { Location } from '@angular/common';
+import { Database, ref, set } from '@angular/fire/database';
+import { remove, update } from 'firebase/database';
 
 
 @Component({
@@ -15,12 +17,34 @@ import { Location } from '@angular/common';
 export class TaskComponent implements OnInit {
   tasks: Tasks[] = [];
   taskID: number = 0; //impelemnt better approach later
+  
 
-  constructor(private taskStorageService: TaskstorageService, private location: Location) { }
+  constructor(private taskStorageService: TaskstorageService, private location: Location, public database: Database) { }
 
   ngOnInit(): void {
     this.fetchData();
   }
+
+  registerTask(value: any){
+    set(ref(this.database, 'tasks/' + value.title),
+    {
+      title: value.title,
+      description: value.description
+    });
+  }
+
+  updateTask(value: any){
+    update(ref(this.database, 'tasks/' + value.title),
+    {
+      title: value.title,
+      description: value.description
+    });
+  }
+
+  deleteTask(value: any){
+    remove(ref(this.database, 'tasks/' + value.title));
+  }
+
 
 
 /*Add a task to the database */

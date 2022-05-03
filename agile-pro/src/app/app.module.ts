@@ -17,7 +17,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 @NgModule ({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { MatSliderModule } from '@angular/material/slider';
     ReactiveFormsModule,
     DragDropModule,
     ScrollingModule,
-    MatSliderModule
+    MatSliderModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase())
   
   ],
   providers: [],
