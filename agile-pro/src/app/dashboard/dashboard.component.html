@@ -1,0 +1,51 @@
+<body style="background-image: url('https://www.teahub.io/photos/full/279-2792224_website-background-design-hd.jpg');">
+    <h1>Product Backlog</h1>
+    <h2>Sprint Backlog</h2>
+    <h3>Done</h3>
+    <div style="display:flex;">
+        <div cdkDropList [cdkDropListData]="taskList" [cdkDropListConnectedTo]="[secondList,thirdList]"
+            #firstList="cdkDropList" class="dashboard-list" (cdkDropListDropped)="drop($event)"
+            style="width: 33%; border: 1px solid blue; background-color: rgb(252, 237, 237);">
+            <div cdkDrag *ngFor="let tasks of taskList" class="dashboard-box">{{tasks.title}}</div>
+        </div>
+        <div cdkDropList [cdkDropListData]="sprintLog" [cdkDropListConnectedTo]="[firstList,thirdList]"
+            #secondList="cdkDropList" class="dashboard-list" (cdkDropListDropped)="drop($event)"
+            style="width: 33%; border: 1px solid blue; background-color: rgb(252, 237, 237)">
+            <div cdkDrag *ngFor="let tasks of sprintLog" class="dashboard-box">{{tasks.title}}</div>
+        </div>
+        <div cdkDropList [cdkDropListData]="completeLog" [cdkDropListConnectedTo]="[firstList,secondList]"
+            #thirdList="cdkDropList" class="dashboard-list" (cdkDropListDropped)="drop($event)"
+            style="width: 33%; border: 1px solid blue; background-color: rgb(252, 237, 237)">
+            <div cdkDrag *ngFor="let tasks of completeLog" class="dashboard-box">{{tasks.title}}</div>
+        </div>
+    </div>
+    <div>
+    </div>
+
+    <div class="sliders">
+        <mat-slider thumbLabel class="productSlider" aria-label="unit(s)" [displayWith]="formatLabel" tickInterval="1"
+            step="5" min="0" max="100"></mat-slider>
+        <mat-slider thumbLabel class="sprintSlider" aria-label="unit(s)" [displayWith]="formatLabel" tickInterval="1"
+            step="5" min="0" max="100"></mat-slider>
+        <mat-slider thumbLabel class="doneSlider" aria-label="unit(s)" [displayWith]="formatLabel" tickInterval="1"
+            step="5" min="0" max="100"></mat-slider>
+    </div>
+    <div>
+        <h1>User Stories</h1>
+        <h1 style = "margin-left:290px">Member List</h1>
+    </div>
+    <div class ="scrollClass">
+        <cdk-virtual-scroll-viewport itemSize="50" class="dashboard-viewport" style = "background-color: rgb(252, 237, 237);">
+            <div *cdkVirtualFor="let users of userStoryLog" class="dashboard-item">
+                <input type="checkbox" name="" id="">
+                {{users.description}}
+            </div>
+        </cdk-virtual-scroll-viewport>
+        <cdk-virtual-scroll-viewport itemSize="50" class="dashboard-viewport" style = "background-color: rgb(252, 237, 237); ">
+            <div *cdkVirtualFor="let members of memberLog" class="dashboard-item">
+                Name: {{members.name}}
+                Role: {{members.role}}
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</body>
