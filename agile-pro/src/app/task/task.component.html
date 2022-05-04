@@ -32,20 +32,22 @@
                 <h1>Add Task</h1>
                 <input type="text" ngModel id="title" name="title" placeholder="Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
+                <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
                 <input type="submit" id="saveData" value="Add" />
             </form>
             <form #EditForm="ngForm" (ngSubmit)="updateTask(EditForm.value)">
                 <h1>Edit Task</h1>
                 <input type="text" ngModel id="title" name="title" placeholder="Title" />
+                <input type="text" ngModel id="newtitle" name="newtitle" placeholder="New Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
+                <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
                 <input type="submit" id="editData" value="Edit" />
             </form>
-            <form #DeleteForm="ngForm" (ngSubmit)="deleteTask(EditForm.value)">
+            <form #DeleteForm="ngForm" (ngSubmit)="deleteTask(DeleteForm.value)">
                 <h1>Delete Task</h1>
                 <input type="text" ngModel id="title" name="title" placeholder="Title" />
                 <input type="submit" id="deleteData" value="Delete"/>
-            </form>
-
+            </form>         
         </div>
 
     </div>

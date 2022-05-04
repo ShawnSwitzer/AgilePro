@@ -37,7 +37,7 @@ export class TaskComponent implements OnInit {
   updateTask(value: any){
     update(ref(this.database, 'tasks/' + value.title),
     {
-      title: value.title,
+      title: value.newtitle,
       description: value.description,
       dueDate: value.dueDate
     });
@@ -85,7 +85,6 @@ titleFormControl = new FormControl('', [Validators.required]);
 
   deleteAllTasks(){
     this.taskStorageService.deleteTasks().subscribe();
-    window.location.reload();
   }
 
   goBack(){
