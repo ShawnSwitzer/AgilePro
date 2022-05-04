@@ -29,7 +29,8 @@ export class TaskComponent implements OnInit {
     set(ref(this.database, 'tasks/' + value.title),
     {
       title: value.title,
-      description: value.description
+      description: value.description,
+      dueDate: value.dueDate
     });
   }
 
@@ -37,7 +38,8 @@ export class TaskComponent implements OnInit {
     update(ref(this.database, 'tasks/' + value.title),
     {
       title: value.title,
-      description: value.description
+      description: value.description,
+      dueDate: value.dueDate
     });
   }
 
