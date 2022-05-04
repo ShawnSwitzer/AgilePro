@@ -101,11 +101,10 @@
   .user_title{
     color: black;
     font-size:larger;
-    width: 50%;
   }
 
   .mem_title{
     color: black;
     font-size:larger;
-    width: 40%;
+    margin-left: 400px;
   }

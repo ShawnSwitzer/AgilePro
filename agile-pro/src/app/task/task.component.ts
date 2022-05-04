@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import {FormControl, Validators} from '@angular/forms';
 import { throws } from 'assert';
 import { Location } from '@angular/common';
+import { Database, ref, set } from '@angular/fire/database';
+import { remove, update } from 'firebase/database';
 
 
 @Component({
@@ -14,13 +16,40 @@ import { Location } from '@angular/common';
 })
 export class TaskComponent implements OnInit {
   tasks: Tasks[] = [];
-  taskID: number = 0; //impelemnt better approach later
+  //taskID: number = Math.floor(Math.random() * (1000000 + 1)); //impelemnt better approach later
+  
 
-  constructor(private taskStorageService: TaskstorageService, private location: Location) { }
+  constructor(private taskStorageService: TaskstorageService, private location: Location, public database: Database) { }
 
   ngOnInit(): void {
     this.fetchData();
   }
+
+  registerTask(value: any){
+    const taskID = Math.floor(Math.random() * (1000000 + 1));
+    set(ref(this.database, 'tasks/' + taskID),
+    {
+      id: taskID,
+      title: value.title,
+      description: value.description,
+      dueDate: value.dueDate
+    });
+  }
+
+  updateTask(value: any){
+    update(ref(this.database, 'tasks/' + value.taskID),
+    {
+      id: value.taskID,
+      title: value.newtitle,
+      description: value.description,
+      dueDate: value.dueDate
+    });
+  }
+
+  deleteTask(value: any){
+    remove(ref(this.database, 'tasks/' + value.taskID));
+  }
+
 
 
 /*Add a task to the database */
@@ -59,7 +88,6 @@ titleFormControl = new FormControl('', [Validators.required]);
 
   deleteAllTasks(){
     this.taskStorageService.deleteTasks().subscribe();
-    window.location.reload();
   }
 
   goBack(){
