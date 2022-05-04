@@ -34,7 +34,6 @@ export class NewUserStoryComponent implements OnInit {
 
   deleteAllUserStories(){
     this.userService.deleteUserStories().subscribe();
-    window.location.reload();
   }
 
 }
