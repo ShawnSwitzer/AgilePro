@@ -1,7 +1,15 @@
+<body style="background-image: url('https://wallup.net/wp-content/uploads/2017/03/28/452307-landscape-Sun-waterfall.jpg');">
+    
+    <div style="display: inline">
+        <label class="headers">Product Backlog</label>
+        <label class="headers">Details</label>
+        <label class="headers">Add Task</label>
+    </div>
+    
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-4 p-3" style="background-color:lightgray">
-            <h2 style="text-align:rights">Product Backlog</h2>
+        <div class="col-sm-4 p-3 transparent-cont">
+
             <mat-selection-list #taskList [multiple]="false" style="margin-left: 3rem;">
                 <mat-list-option *ngFor="let task of tasks" [value]="task" class="taskListItem">
                     {{task.title}}
@@ -9,7 +17,7 @@
             </mat-selection-list>
         </div>
 
-        <div class="col-sm-4 p-3" style="background-color: dimgray; color: white;">
+        <div class="col-sm-4 p-3 transparent-cont">
             <h2 style="text-align: center
             ">Click on a task to view details</h2>
             <div *ngIf="taskList.selectedOptions.selected[0]" style="text-align: center;">
@@ -51,10 +59,12 @@
                 <input type="text" ngModel id="taskID" name="taskID" placeholder="Task ID" />
                 <input type="submit" id="deleteData" value="Delete"/>
             </form>         
+
         </div>
 
     </div>
     <br>
+    <div style="display: inline;">
     <button style="text-align: left;" (click)="deleteAllTasks()">
         Delete All Tasks
     </button>
@@ -62,5 +72,7 @@
     <button style="text-align: right;" (click)="goBack()">
         Go Back
     </button>
+    </div>
 
 </div>
+</body>
