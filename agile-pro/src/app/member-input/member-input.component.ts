@@ -8,6 +8,8 @@ import { Members } from '../members';
 })
 export class MemberInputComponent implements OnInit {
 
+  list:boolean = true;
+  add:boolean=false;
 
   memList: Members[] = [];
   nextID: number = 0;
@@ -40,6 +42,12 @@ export class MemberInputComponent implements OnInit {
   deleteAllMembers(){
     this.memService.deleteMembers().subscribe();
     window.location.reload();
+  }
+
+  clickedAdd(){
+    this.list = !this.list;
+    this.add = !this.add;
+    this.fetchData();
   }
 
 }

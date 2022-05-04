@@ -1,7 +1,9 @@
 <body style="background-image: url('https://www.teahub.io/photos/full/279-2792224_website-background-design-hd.jpg');">
-    <h1>Product Backlog</h1>
-    <h2>Sprint Backlog</h2>
-    <h3>Done</h3>
+    <div style="display: inline">
+        <label class="prod_title">Product Backlog</label>
+        <label class="sprint_title">Sprint Backlog</label>
+        <label class="done_title">Done</label>
+    </div>
     <div style="display:flex;">
         <div cdkDropList [cdkDropListData]="taskList" [cdkDropListConnectedTo]="[secondList,thirdList]"
             #firstList="cdkDropList" class="dashboard-list" (cdkDropListDropped)="drop($event)"
@@ -30,9 +32,9 @@
         <mat-slider thumbLabel class="doneSlider" aria-label="unit(s)" [displayWith]="formatLabel" tickInterval="1"
             step="5" min="0" max="100"></mat-slider>
     </div>
-    <div>
-        <h1>User Stories</h1>
-        <h1 style = "margin-left:290px">Member List</h1>
+    <div style="display: inline;">
+        <label class="user_title">User Stories</label>
+        <label class="mem_title">Member List</label>
     </div>
     <div class ="scrollClass">
         <cdk-virtual-scroll-viewport itemSize="50" class="dashboard-viewport" style = "background-color: rgb(252, 237, 237);">

@@ -46,18 +46,6 @@
   .dashboard-list.cdk-drop-list-dragging .dashboard-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
-
-  h1{
-    display:inline;
-  }
-  h2{
-    display: inline;
-    padding:350px;
-  }
-  h3{
-    display: inline;
-    padding: 70px;
-  }
   .dashboard-custom-placeholder {
     background: #ccc;
     border: dotted 3px #999;
@@ -77,17 +65,47 @@
     display: block;
   }
   .doneSlider{
-    margin-left: 450px;
-    width: 200px;
+    margin-left: 8.3333333%;
+    width: 25%;
   }
   .sprintSlider{
-    margin-left: 450px;
-    width: 200px;
+    margin-left: 5%;
+    width: 25%;
   }
   .productSlider{
-    margin-left: 20px;
-    width: 200px;
+    margin-left: 5%;
+    width: 25%;
   }
   .scrollClass{
     display: inline-flex;
+  }
+
+  .prod_title{
+    color: black;
+    font-size:larger;
+    
+     width: 33%;
+  }
+  .sprint_title{
+    color: black;
+    font-size:larger;
+    width: 33%;
+     
+  }
+  .done_title{
+    color: black;
+    font-size:larger;
+    width: 33%;
+  }
+
+  .user_title{
+    color: black;
+    font-size:larger;
+    width: 50%;
+  }
+
+  .mem_title{
+    color: black;
+    font-size:larger;
+    width: 40%;
   }
