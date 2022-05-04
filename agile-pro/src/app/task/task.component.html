@@ -20,6 +20,9 @@
                 <h3>Due Date:</h3>
                 {{taskList.selectedOptions.selected[0]?.value.dueDate}}
                 <br><br>
+                <h3>ID:</h3>
+                {{taskList.selectedOptions.selected[0]?.value.id}}
+                <br><br>
             </div>
         </div>
 
@@ -37,7 +40,7 @@
             </form>
             <form #EditForm="ngForm" (ngSubmit)="updateTask(EditForm.value)">
                 <h1>Edit Task</h1>
-                <input type="text" ngModel id="title" name="title" placeholder="Title" />
+                <input type="text" ngModel id="taskID" name="taskID" placeholder="ID" />
                 <input type="text" ngModel id="newtitle" name="newtitle" placeholder="New Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
                 <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
@@ -45,7 +48,7 @@
             </form>
             <form #DeleteForm="ngForm" (ngSubmit)="deleteTask(DeleteForm.value)">
                 <h1>Delete Task</h1>
-                <input type="text" ngModel id="title" name="title" placeholder="Title" />
+                <input type="text" ngModel id="taskID" name="taskID" placeholder="Task ID" />
                 <input type="submit" id="deleteData" value="Delete"/>
             </form>         
         </div>

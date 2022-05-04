@@ -16,7 +16,7 @@ import { remove, update } from 'firebase/database';
 })
 export class TaskComponent implements OnInit {
   tasks: Tasks[] = [];
-  taskID: number = 0; //impelemnt better approach later
+  //taskID: number = Math.floor(Math.random() * (1000000 + 1)); //impelemnt better approach later
   
 
   constructor(private taskStorageService: TaskstorageService, private location: Location, public database: Database) { }
@@ -26,8 +26,10 @@ export class TaskComponent implements OnInit {
   }
 
   registerTask(value: any){
-    set(ref(this.database, 'tasks/' + value.title),
+    const taskID = Math.floor(Math.random() * (1000000 + 1));
+    set(ref(this.database, 'tasks/' + taskID),
     {
+      id: taskID,
       title: value.title,
       description: value.description,
       dueDate: value.dueDate
@@ -35,8 +37,9 @@ export class TaskComponent implements OnInit {
   }
 
   updateTask(value: any){
-    update(ref(this.database, 'tasks/' + value.title),
+    update(ref(this.database, 'tasks/' + value.taskID),
     {
+      id: value.taskID,
       title: value.newtitle,
       description: value.description,
       dueDate: value.dueDate
@@ -44,7 +47,7 @@ export class TaskComponent implements OnInit {
   }
 
   deleteTask(value: any){
-    remove(ref(this.database, 'tasks/' + value.title));
+    remove(ref(this.database, 'tasks/' + value.taskID));
   }
 
 
