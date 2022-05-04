@@ -36,3 +36,22 @@
 label{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.member_list_items{
+margin: 3%;
+border: 1px black;
+}
+
+.member_list{
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 5 px;
+    border-radius: 5px;
+    width: 25%;
+    outline: black 1px;
+}
+
+.member_list:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
