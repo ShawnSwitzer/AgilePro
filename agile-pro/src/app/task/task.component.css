@@ -15,11 +15,18 @@ mat-list-option[aria-selected="true"] {
     text-align: center;
     font-size:xx-large;
     font-weight: 800;
-    color:black;
+    color: beige;
 }
 
 .taskListItem{
 font-size: x-large;
 text-decoration-line: underline;
-font-weight: 500;
+font-weight: 5
+}
+
+.styleBtn{
+    background-color: lightgray;
+    margin-right: 1ch;
+    border-style: ridge;
+    border-width: 2px;
 }

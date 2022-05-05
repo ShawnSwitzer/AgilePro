@@ -34,6 +34,7 @@ export class TaskComponent implements OnInit {
       description: value.description,
       dueDate: value.dueDate
     });
+    this.fetchData();
   }
 
   updateTask(value: any){
@@ -44,10 +45,12 @@ export class TaskComponent implements OnInit {
       description: value.description,
       dueDate: value.dueDate
     });
+    this.fetchData();
   }
 
   deleteTask(value: any){
     remove(ref(this.database, 'tasks/' + value.taskID));
+    this.fetchData();
   }
 
 

@@ -8,6 +8,7 @@
     
 <div class="container-fluid">
     <div class="row">
+        <!--First col / product backlog-->
         <div class="col-sm-4 p-3 transparent-cont">
 
             <mat-selection-list #taskList [multiple]="false" style="margin-left: 3rem;">
@@ -17,14 +18,15 @@
             </mat-selection-list>
         </div>
 
+        <!--Second col / details-->
         <div class="col-sm-4 p-3 transparent-cont">
             <h2 style="text-align: center
             ">Click on a task to view details</h2>
-            <div *ngIf="taskList.selectedOptions.selected[0]" style="text-align: center;">
+            <div *ngIf="taskList.selectedOptions.selected[0]" style="text-align: center; font-size: large;">
                 <h3>Task Title:</h3>
                 {{taskList.selectedOptions.selected[0]?.value.title}}
                 <h3>Task Description:</h3>
-                {{taskList.selectedOptions.selected[0]?.value.description}}
+                <p style="word-wrap: break-word;">{{taskList.selectedOptions.selected[0]?.value.description}}</p> <!--Allows multiline desc without overflow-->
                 <h3>Due Date:</h3>
                 {{taskList.selectedOptions.selected[0]?.value.dueDate}}
                 <br><br>
@@ -34,7 +36,8 @@
             </div>
         </div>
 
-        <div class="col-sm-4 p-3 transparent-cont" style="background-color: lightgray;">
+        <div class="col-sm-4 p-3 transparent-cont">
+            <!--Third col / forms-->
             <!--
         Testing with Form and with different method
         with this video: https://www.youtube.com/watch?v=4J9nDZ0gvdo
@@ -44,7 +47,8 @@
                 <input type="text" ngModel id="title" name="title" placeholder="Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
                 <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
-                <input type="submit" id="saveData" value="Add" />
+                <input type="submit" id="saveData" value="Add" class="styleBtn" />
+                <input type="reset" value="reset" class="styleBtn" />
             </form>
             <form #EditForm="ngForm" (ngSubmit)="updateTask(EditForm.value)">
                 <h1>Edit Task</h1>
@@ -52,12 +56,13 @@
                 <input type="text" ngModel id="newtitle" name="newtitle" placeholder="New Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
                 <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
-                <input type="submit" id="editData" value="Edit" />
+                <input type="submit" id="editData" value="Edit"  class="styleBtn"/>
+                <input type="reset" value="reset" class="styleBtn" />
             </form>
             <form #DeleteForm="ngForm" (ngSubmit)="deleteTask(DeleteForm.value)">
                 <h1>Delete Task</h1>
-                <input type="text" ngModel id="taskID" name="taskID" placeholder="Task ID" />
-                <input type="submit" id="deleteData" value="Delete"/>
+                <input type="text" ngModel id="taskID" name="taskID" placeholder="Task ID"/>
+                <input type="submit" id="deleteData" value="Delete" class="styleBtn"/>
             </form>         
 
         </div>
@@ -65,11 +70,11 @@
     </div>
     <br>
     <div style="display: inline;">
-    <button style="text-align: left;" (click)="deleteAllTasks()">
+    <button class="styleBtn" (click)="deleteAllTasks()">
         Delete All Tasks
     </button>
 
-    <button style="text-align: right;" (click)="goBack()">
+    <button class="styleBtn" (click)="goBack()">
         Go Back
     </button>
     </div>
