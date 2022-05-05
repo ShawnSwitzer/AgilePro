@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserstoryService } from '../userstory.service';
 import { UserStories } from '../userstories';
+import { Router } from '@angular/router';
 import { throws } from 'assert';
 
 @Component({
@@ -10,30 +11,25 @@ import { throws } from 'assert';
 })
 export class NewUserStoryComponent implements OnInit {
 
-  userList: UserStories[] = [];
-  nextID: number = 0;
-  newDescription: string = '';
+  userStory: UserStories = {} as UserStories;
+  public stories: UserStories[] = [];
+  public sDesc: string = "";
 
-  constructor(private userService: UserstoryService) { }
+  constructor(private userstoryService: UserstoryService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.fetchData();
+    
   }
 
-  addNewStory(){
-    const newStory: UserStories = {
-      id: this.nextID++,
-      description: this.newDescription
+  public addStory() {
+    this.userstoryService.addNewStory(this.userStory).subscribe({
+      next: (data: {}) => {
+        this.router.navigate(['/']).then();
 
-    };
-  }
-
-  fetchData(){
-    this.userService.getStories().subscribe(data => this.userList = data);
-  }
-
-  deleteAllUserStories(){
-    this.userService.deleteUserStories().subscribe();
+       // this.router.navigate(['/']).then();
+      }
+    });
   }
 
 }

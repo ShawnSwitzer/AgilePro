@@ -1,0 +1,32 @@
+.box-card {
+    width: 500px;
+    height: 150;
+    border: 1px solid black;
+    padding: 20px 32px 1px;
+    margin: 20px 1px 5px;
+  }
+
+/* .box-card {
+  width: 500px;
+  height: 150px;
+  border: 1px solid blue;
+  padding: 2px 22px 15px;
+  margin: 20px 1px 5px;
+} */
+
+.card {
+  width: 540px;
+    border: 1px solid pink;
+    padding: 1px 12px 10px;
+    overflow: auto;
+    margin: 10px 0px 15px;
+}
+  
+h2 {
+  text-indent: 10px;
+}
+  
+.button {
+  border-radius: 10px;
+  padding: 3px 12px;
+}

@@ -1,1 +1,25 @@
-<p>user-story works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card" *ngFor="let story of storiesL">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="box-card">
+                            <div class="mb-2">
+                                <textarea required="true"
+                             class="form-control" name="description" id="description" cols="20" rows="5">
+                             {{story.description}}
+                            </textarea>
+                            </div>
+                            <div class="mb-2">
+                               <button class="button" (click)="clickDeleteUserStory(story.id)">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     this.taskStorage.getTasks().subscribe((data) => {
       this.taskList = data;
     })
-    this.uStorage.getStories().subscribe((data) => {this.userStoryLog = data});
+    this.uStorage.getAllStories().subscribe((data) => {this.userStoryLog = data});
     this.memStorage.getMembers().subscribe((data) => {this.memberLog = data});
   }
 

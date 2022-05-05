@@ -1,1 +1,39 @@
-<p>new-user-story works!</p>
+<body style="background-image: url('https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg');">
+    
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="button">
+                        <button class="button">
+                            <a class="nav-link" routerLink="/dashboard">Go Back</a>
+                        </button>
+                    </div>
+                    <div class="box-card">
+                        <div class="col">
+                            <h2>Create New User Story</h2>  
+                        </div>
+                        <form (submit)="addStory()">
+                            <div class="mb-2">
+                                <textarea class="form-control" 
+                                required="true" 
+                                [(ngModel)]="userStory.description"
+                                name="description" 
+                                id="description" 
+                                cols="10" rows="5"
+                                #description='ngModel'></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <input type="submit"  class="button" style="float: right;" value="Add Story">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <app-user-story></app-user-story> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

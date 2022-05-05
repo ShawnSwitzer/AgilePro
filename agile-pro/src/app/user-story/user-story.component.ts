@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserStories } from '../userstories';
 import { UserstoryService } from '../userstory.service';
 
+
 @Component({
   selector: 'app-user-story',
   templateUrl: './user-story.component.html',
@@ -9,30 +10,29 @@ import { UserstoryService } from '../userstory.service';
 })
 export class UserStoryComponent implements OnInit {
 
-  userList: UserStories[] = [];
-  nextID: number = 0;
-  newDescription: string = '';
+  public storiesL: UserStories[] = [];
 
-  constructor(private userService: UserstoryService) { }
+  constructor(private userstoryService: UserstoryService) { }
 
   ngOnInit(): void {
-    this.fetchData();
+    this.getAllStories();
   }
 
-  addNewStory(){
-    const newStory: UserStories = {
-      id: this.nextID++,
-      description: this.newDescription
-
-    };
+  public getAllStories(){
+    this.userstoryService.getAllStories()
+    .subscribe({next:(data:UserStories[]) =>{
+      this.storiesL = data;
+    }
+    })
   }
-
-  fetchData(){
-    this.userService.getStories().subscribe(data => this.userList = data);
-  }
-
-  deleteUserStories(){
-    this.userService.deleteUserStories().subscribe();
+  public clickDeleteUserStory(storyId:number){
+    if(storyId){
+      this.userstoryService.deleteUStory(storyId)
+      .subscribe({next:(data:{})=>{
+        this.getAllStories();
+      }
+      })
+    }
   }
 
 }
