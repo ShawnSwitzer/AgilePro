@@ -46,13 +46,17 @@ export class UserstoryService {
   }
 
   //Delete a UStory
-  deleteUStory(userId: number): Observable<UserStories> {
-    return this.http.delete<UserStories>('https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json').pipe(
-      catchError(this.handleError<UserStories>('deleteUStory'))
+  // deleteUStory(userId: number): Observable<UserStories> {
+  //   return this.http.delete<UserStories>('https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json').pipe(
+  //     catchError(this.handleError<UserStories>('deleteUStory'))
+  //   );
+  // }
+
+  deleteAll() {
+    return this.http.delete(
+      'https://userstories-3def5-default-rtdb.firebaseio.com/' + 'userstories.json'
     );
   }
-
-  
 
   public handleError<T>(operation = 'operation', result?: T){
     return(error: any): Observable<T> => {
