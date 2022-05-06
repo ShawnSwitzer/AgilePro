@@ -25,14 +25,9 @@ export class UserStoryComponent implements OnInit {
     }
     })
   }
-  public clickDeleteUserStory(storyId:number){
-    if(storyId){
-      this.userstoryService.deleteUStory(storyId)
-      .subscribe({next:(data:{})=>{
-        this.getAllStories();
-      }
-      })
-    }
+  public clickDeleteUserStory(){
+    this.userstoryService.deleteAll().subscribe();
+    this.storiesL = [];
   }
 
 }
