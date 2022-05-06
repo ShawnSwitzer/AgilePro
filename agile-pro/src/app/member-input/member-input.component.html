@@ -1,27 +1,31 @@
-<div class="container" *ngIf="add">
-    <label>Add Memeber Form</label>
-    <button class="button" (click)="clickedAdd()">back</button><br>
-    <div class="card">
-            <div>
-                <input class="input"type="text" placeholder="Name" [(ngModel)]="memName"><br>
-            </div>
-            <div>
-                <select class="input" id="roles" [(ngModel)]="memRole" >
-                    <option value = "Scrum Master">Scrum Master</option>
-                    <option value = "Product Owner">Product Owner</option>
-                    <option value = "Development Team">Development Team</option>
-                </select><br>
-            </div>
-            <button class="button" type="submit" (click)="addNewMember()">Add Member</button>
-    </div>   
-</div>
-<div class="member_list" *ngIf="list">
-    <h1 >Members</h1>
-    <label style="display: block;" *ngFor="let member of memList" class="member_list_items">
-        {{member.name}}<br>
-        {{member.role}}<br>
-    </label>
-</div>
-<div>
-    <button class="button" *ngIf="list"(click)="clickedAdd()">Add</button>
-</div>
+<body style="background-image:url('https://geographical.co.uk/media/k2/items/cache/852c2fa5e5468761c3ae8b796ca9be85_XL.jpg');">
+    <div class="member_form" *ngIf="add">
+        <h3>Add Memeber Form</h3>
+        <button class="button" (click)="clickedAdd()">back</button><br>
+    
+        <div class="card">
+                <div>
+                    <input class="input"type="text" placeholder="Name" [(ngModel)]="memName"><br>
+                </div>
+                <div>
+                    <select class="input" id="roles" [(ngModel)]="memRole" >
+                        <option value = "Scrum Master">Scrum Master</option>
+                        <option value = "Product Owner">Product Owner</option>
+                        <option value = "Development Team">Development Team</option>
+                    </select><br>
+                </div>
+                <button class="button" type="submit" (click)="addNewMember()">Add Member</button>
+        </div>   
+    </div>
+    <div class="member_list" *ngIf="list">
+        <h1 >Members</h1>
+        <label style="display: block;" *ngFor="let member of memList" class="member_list_items">
+            {{member.name}}<br>
+            {{member.role}}<br>
+        </label>
+    </div>
+    <div>
+        <button class="button" *ngIf="list"(click)="clickedAdd()">Add</button>
+        <button class="button" *ngIf="list" (click) = "deleteAllMembers()">Clear Members</button>
+    </div>
+</body>
