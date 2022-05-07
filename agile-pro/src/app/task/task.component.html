@@ -27,6 +27,8 @@
                 {{taskList.selectedOptions.selected[0]?.value.title}}
                 <h3>Task Description:</h3>
                 <p style="word-wrap: break-word;">{{taskList.selectedOptions.selected[0]?.value.description}}</p> <!--Allows multiline desc without overflow-->
+                <h3> Member Assignment:</h3>
+                {{taskList.selectedOptions.selected[0]?.value.memberAssign}}
                 <h3>Due Date:</h3>
                 {{taskList.selectedOptions.selected[0]?.value.dueDate}}
                 <br><br>
@@ -47,6 +49,12 @@
                 <input type="text" ngModel id="title" name="title" placeholder="Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
                 <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
+                <select name ="memberAssign" ngModel id = "memberAssign">
+                    <option value="" disabled selected hidden>Assign Member</option>
+                    <option *ngFor="let member of memberList" [value]="member.name">
+                        {{member.name}}
+                    </option>
+                </select>
                 <input type="submit" id="saveData" value="Add" class="styleBtn" />
                 <input type="reset" value="reset" class="styleBtn" />
             </form>
@@ -56,6 +64,12 @@
                 <input type="text" ngModel id="newtitle" name="newtitle" placeholder="New Title" />
                 <input type="text" ngModel id="description" name="description" placeholder="Description" />
                 <input type="date" ngModel id="dueDate" name ="dueDate" value="2022-12-31" min="2022-01-01" max="2042-12-31">
+                <select name ="memberAssign" ngModel id = "memberAssign">
+                    <option value="" disabled selected hidden>Assign Member</option>
+                    <option *ngFor="let member of memberList" [value]="member.name">
+                        {{member.name}}
+                    </option>
+                </select>
                 <input type="submit" id="editData" value="Edit"  class="styleBtn"/>
                 <input type="reset" value="reset" class="styleBtn" />
             </form>

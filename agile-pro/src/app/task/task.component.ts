@@ -7,7 +7,8 @@ import { throws } from 'assert';
 import { Location } from '@angular/common';
 import { Database, ref, set } from '@angular/fire/database';
 import { remove, update } from 'firebase/database';
-
+import { Members } from '../members';
+import { MemberstorageService } from '../memberstorage.service';
 
 @Component({
   selector: 'app-task',
@@ -16,10 +17,11 @@ import { remove, update } from 'firebase/database';
 })
 export class TaskComponent implements OnInit {
   tasks: Tasks[] = [];
+  memberList: Members[] = [];
   //taskID: number = Math.floor(Math.random() * (1000000 + 1)); //impelemnt better approach later
   
 
-  constructor(private taskStorageService: TaskstorageService, private location: Location, public database: Database) { }
+  constructor(private taskStorageService: TaskstorageService, private location: Location, private memberStorageService: MemberstorageService, public database: Database) { }
 
   ngOnInit(): void {
     this.fetchData();
@@ -32,7 +34,8 @@ export class TaskComponent implements OnInit {
       id: taskID,
       title: value.title,
       description: value.description,
-      dueDate: value.dueDate
+      dueDate: value.dueDate,
+      memberAssign: value.memberAssign
     });
     this.fetchData();
   }
@@ -43,7 +46,8 @@ export class TaskComponent implements OnInit {
       id: value.taskID,
       title: value.newtitle,
       description: value.description,
-      dueDate: value.dueDate
+      dueDate: value.dueDate,
+      memberAssign: value.memberAssign
     });
     this.fetchData();
   }
@@ -56,13 +60,14 @@ export class TaskComponent implements OnInit {
 
 
 /*Add a task to the database */
-  addTask(taskTitle: string, taskDescription: string, taskDueDate: string){
+  addTask(taskTitle: string, taskDescription: string, taskDueDate: string, taskAssignment: string){
     if( !taskTitle) {return;} //Title is required so cancel add method
     const newTask: Tasks ={
       id: this.genId(this.tasks),
       title: taskTitle,
       description: taskDescription,
-      dueDate: taskDueDate
+      dueDate: taskDueDate,
+      memberAssign: taskAssignment
     }
 
     this.taskStorageService
@@ -86,6 +91,9 @@ titleFormControl = new FormControl('', [Validators.required]);
   fetchData(){
     this.taskStorageService.getTasks().subscribe((data) => {
       this.tasks = data;
+    })
+    this.memberStorageService.getMembers().subscribe((data) => {
+      this.memberList = data;
     })
   }
 
