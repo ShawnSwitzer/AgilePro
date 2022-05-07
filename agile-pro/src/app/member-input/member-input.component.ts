@@ -33,16 +33,23 @@ export class MemberInputComponent implements OnInit {
 
     this.memName = "";
     this.memRole = "";
+    
   }
 
   fetchData(){
     this.memService.getMembers().subscribe(data => this.memList = data);
   }
 
+  //i don't know why, but i have to do this for the page to update. 
   deleteAllMembers(){
     this.memService.deleteMembers().subscribe();
-    window.location.reload();
+    this.list = !this.list;
+    this.add = !this.add;
+    this.list = !this.list;
+    this.add = !this.add;
+    this.fetchData()
   }
+
 
   clickedAdd(){
     this.list = !this.list;
